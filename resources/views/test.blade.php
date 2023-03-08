@@ -11,14 +11,14 @@
         <h2>Seleccione tipo de test</h2>
         <div class="row mt-5">
 
-            <div class="card col-lg-3 mx-auto p-5">
+            <div class="card col-lg-3 mx-auto p-5 mt-2">
                 <form action="{{ route('preguntasbloque') }}" method="POST">
                     @csrf
                     <div class="card-title">
                         <h5>Test por Bloque</h5>
                     </div <div class="form-group">
                     <label for="bloque_id">Bloque</label>
-                    <select class="form-select" id="bloque_id" name="bloque_id">
+                    <select class="form-control" id="bloque_id" name="bloque_id">
                         @foreach ($bloques as $bloque)
                             <option value="{{ $bloque->id }}">{{ strip_tags($bloque->nombre) }} - {{ strip_tags($bloque->descripcion) }}</option>
                         @endforeach
@@ -26,7 +26,7 @@
                     </select>
                     <div class="form-group">
                         <label for="myListbox">Nº preguntas:</label>
-                        <select class="form-select" id="myListbox" name="num_registros">
+                        <select class="form-control" id="myListbox" name="num_registros">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -38,7 +38,7 @@
                     <input type="submit" class="btn btn-danger mt-2" value="Hacer test">
                 </form>
             </div>
-            <div class="card col-lg-3 mx-auto p-5">
+            <div class="card col-lg-3 mx-auto p-5 mt-2">
                 <form action="{{ route('preguntas') }}" method="POST">
                     @csrf
                     <div class="card-title">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="bloque_id">Tema</label>
-                        <select class="form-select" id="bloque_id" name="categoria_id">
+                        <select class="form-control" id="bloque_id" name="categoria_id">
                             @foreach ($bloques as $bloque)
                                 <optgroup label="{{ $bloque->nombre }}">
                                     @foreach ($bloque->categorias as $categoria)
@@ -71,7 +71,7 @@
                     <input type="submit" class="btn btn-danger mt-2" value="Hacer test">
                 </form>
             </div>
-            <div class="card col-lg-3  mx-auto p-5">
+            <div class="card col-lg-3  mx-auto p-5 mt-2">
                 <form action="{{ route('preguntasgeneral') }}" method="POST">
                     @csrf
                     <div class="card-title">

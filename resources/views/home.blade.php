@@ -67,7 +67,7 @@
         </div>.
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-2">
                     <div class="card bg-warning">
                         <div class="text-center py-2">
                             <img src="images/chico1.jpg" alt="imagen" class="rounded-circle p-2">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-2">
                     <div class="card bg-warning">
                         <div class="card-body">
                             <div class="text-center ">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-2">
                     <div class="card bg-warning">
                         <div class="text-center py-3">
                             <img src="images/chica.jpg" alt="imagen" class="rounded-circle">
