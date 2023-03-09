@@ -11,7 +11,7 @@
     <div class="imagen-con-texto">
         <img src="images/portada.jpg" class="card-img-top p-2" alt="..." loading="lazy">
         <div class="texto">
-            <h2>Oposiciones a Técnico Auxiliar Informática </h2>
+            <h2>Oposiciones a Técnico Auxiliar de Informática </h2>
             <p>Personaliza tu preparación, podrás hacer test por temas y materias. Sin límites. ¡Haz los test que quieras,
                 cuando quieras!</p>
         </div>

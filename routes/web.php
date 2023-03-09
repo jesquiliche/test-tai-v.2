@@ -31,12 +31,24 @@ Route::post('/corrector',[\App\Http\Controllers\CorrectorController::class,'corr
 Route::post('/preguntasbloque', [App\Http\Controllers\PreguntaController::class,'showByBloque'])->name('preguntasbloque');
 Route::post('/preguntas', [App\Http\Controllers\PreguntaController::class,'showByCategory'])->name('preguntas');
 Route::post('/preguntasgeneral', [App\Http\Controllers\PreguntaController::class,'general'])->name('preguntasgeneral');
-Route::get('/test', [App\Http\Controllers\TestPorCateriasController::class,'index'])->name('test');
+Route::get('/test', [App\Http\Controllers\TestPorCateriasController::class,'index'])->name('test')->middleware('auth');
 
 
 Route::get('/home', function(){
     return view('home');
 })->name('home');
+
+Route::get('/auth/register', function () {
+    return view('auth.register');
+})->name('registro');
+
+Route::get('/auth/login', function () {
+    return view('auth.login');
+})->name('login2');
+
+//Route::post('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+//Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 /*Route::middleware([
     'auth:sanctum',
