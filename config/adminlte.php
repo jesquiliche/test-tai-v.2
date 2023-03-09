@@ -307,11 +307,6 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text'        => 'Dashboard',
             'url'         => '/admin',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
@@ -322,6 +317,7 @@ return [
             'text' => 'Bloques',
             'route'  => 'admin.bloque.index',
             'icon' => 'fas fa-fw fa-layer-group',
+            'can'=> 'admin.bloque.index'
         ],
         [
             'text' => 'Categorias',
@@ -337,6 +333,7 @@ return [
             'text' => 'Usuarios',
             'route'  => 'admin.user.index',
             'icon' => 'fas fa-fw fa-users',
+            'can'=> 'admin.user.index'
         ]
        
     ],

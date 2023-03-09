@@ -77,7 +77,9 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
        
-        $user->syncRoles($request->roles);
+     //   return $user;
+        $roles=$request->roles;
+        $user->syncRoles($roles);
 
         $user->save();
 

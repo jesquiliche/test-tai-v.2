@@ -14,7 +14,7 @@ Route::resource("users",UserController::class)->names('admin.user');
 
 
 
-Route::get("/", [HomeController::class,'index']);
+Route::get("/", [HomeController::class,'index'])->middleware('can:admin.home')->name('admin.home');
 
 
 

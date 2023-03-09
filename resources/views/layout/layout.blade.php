@@ -603,12 +603,25 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user-plus"></i> Usuario
+                                <i class="fas fa-user-plus"></i> 
+                                @if (!auth()->check())
+                              
+                                    
+                                @else
+                                    {{ auth()->user()->name }}
+                                @endif
+                                
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('registro') }}">Registro</a>
-                                <a class="dropdown-item" href="{{ route('login2') }}">Iniciar sesión</a>
-                                <a class="dropdown-item" href="/admin">Administración</a>
+                                @if (!auth()->check())
+                              
+                                    <a class="dropdown-item" href="{{ route('login2') }}">Iniciar sesión</a>
+                                @endif
+                                
+                                @can('admin.home')
+                                    <a class="dropdown-item" href={{ route('admin.home') }}>Administración</a>
+                                @endcan
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
