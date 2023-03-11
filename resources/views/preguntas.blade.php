@@ -12,6 +12,7 @@
         @php
             $x = 0;
         @endphp
+        @if(count($preguntas)>0)
         <form action="{{ route('corrector') }}" method="POST">
             @csrf
             @foreach ($preguntas as $pregunta)
@@ -60,11 +61,18 @@
                     </div>
                 </div>
             @endforeach
-            <input type="number" name="registros" value="{{ $x }}">;
+            <input type="hidden" name="registros" value="{{ $x }}">;
             <div class="container col-lg-8 text-center py-2 mt-3 mx-auto">
                 <input type="submit" class="btn btn-danger text-center" value="Corregir">
             </div>
         </form>
+    
+            
+        @else
+            <div class="card text-center col-md-6 mx-auto py-4 mt-4"
+            <h5>No se encotraron preguntas sobre este tema/bloque</h5> 
+            </div>       
+        @endif
     </div>
 
 @endsection

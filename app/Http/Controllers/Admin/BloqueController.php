@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bloque;
 use Psy\Command\EditCommand;
+use Illuminate\Support\Facades\File;
 
 class BloqueController extends Controller
 {
@@ -102,5 +103,37 @@ class BloqueController extends Controller
     {
         $bloque->delete();
         return redirect()->route('admin.bloque.index')->with('success', 'El bloque se ha eliminado exitosamente.');
+    }
+
+    public function exportToJson()
+    {
+        try {
+            // Obtener los datos del modelo
+            $bloques = Bloque::all();
+
+            // Convertir los datos a formato JSON
+            $json = $bloques->toJson();
+
+            // Definir la ruta del archivo
+            $file = public_path('data/bloques.json');
+
+            // Comprobar si el archivo ya existe
+            if (File::exists($file)) {
+                // Reemplazar el archivo si ya existe
+                File::replace($file, $json);
+            } else {
+                // Crear el archivo si no existe
+                File::put($file, $json);
+            }
+
+            // Verificar que el archivo se haya creado o reemplazado
+            if (File::exists($file)) {
+                return redirect()->route('admin.pregunta.index')->with('success', 'El archivo se ha exportado correctamente.');
+            } else {
+                throw new \Exception('Ha ocurrido un error al exportar el archivo');
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('admin.bloque.index')->with('success', $e->getMessage());
+        }
     }
 }

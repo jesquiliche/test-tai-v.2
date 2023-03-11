@@ -23,5 +23,10 @@ Route::resource("preguntas",PreguntaController::class)->names('admin.pregunta');
 
 
 
+Route::post('/preguntas/export', [PreguntaController::class, 'exportToJson'])->name('admin.pregunta.export');
+
+
+
+
 
 

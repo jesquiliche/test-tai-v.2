@@ -105,7 +105,7 @@
                 </div>
             @endfor
          <!-- Cerrar el div con clase row -->
-        <div class="card col-lg-4 py-2 mx-auto mt-4 mb-4 text-center">
+        <div class="card col-lg-6 py-2 mx-auto mt-4 mb-4 text-center">
             <div class="card-header">
                 <b>Resultado</b>
             </div>
@@ -116,10 +116,11 @@
                 @endphp
                 {{ $tantoPorCiento }}% de aciertos
             </div>
+            <div class="container col-lg-6 mx-auto text-center py-2">
+                <a href="{{ route('test') }}" class="nav-link btn btn-danger">Hacer otro</a>
+            </div>
         </div>
-        <div class="container col-lg-6 mx-auto text-center">
-            <a href="{{ route('test') }}" class="nav-link btn btn-danger">Hacer otro</a>
-        </div>
+        
         <br />
         <br />
     @endsection

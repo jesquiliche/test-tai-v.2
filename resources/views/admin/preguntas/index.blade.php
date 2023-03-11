@@ -16,6 +16,7 @@
         </div>
     @endif
     <div class="card">
+       
         <div class="card-header">
             {!! Form::open(['route' => 'admin.pregunta.index', 'method' => 'GET']) !!}
             {!! Form::select('categoria_id', $categorias->pluck('nombre', 'id'), request('categoria_id'), [
@@ -30,6 +31,12 @@
                 </td>
                 <td>
                     <a href="{{ route('admin.pregunta.create') }}" class="btn btn-primary ml-2">Agregar</a>
+                </td>
+                <td>
+                    <form method="POST" action="{{ route('admin.pregunta.export') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-primary ml-2">Exportar a JSON</button>
+                    </form>
                 </td>
             </table>
         </div>
