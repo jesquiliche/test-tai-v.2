@@ -128,7 +128,7 @@ class BloqueController extends Controller
 
             // Verificar que el archivo se haya creado o reemplazado
             if (File::exists($file)) {
-                return redirect()->route('admin.pregunta.index')->with('success', 'El archivo se ha exportado correctamente.');
+                return redirect()->route('admin.bloque.index')->with('success', 'El archivo se ha exportado correctamente.');
             } else {
                 throw new \Exception('Ha ocurrido un error al exportar el archivo');
             }

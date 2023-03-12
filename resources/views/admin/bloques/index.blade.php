@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-@if(session('success'))
+    @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
@@ -18,9 +18,20 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.bloque.create')}}" class="btn btn-primary btn-sm">
-                Agregar bloque
-            </a>
+            <table>
+                <td>
+                    <a href="{{ route('admin.bloque.create') }}" class="btn btn-primary btn-sm">
+                        Agregar bloque
+                    </a>
+                </td>
+                <td>
+                    <form method="POST" action="{{ route('admin.bloque.export') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-primary btn-sm ml-2">Exportar a JSON</button>
+                    </form>
+                </td>
+
+
         </div>
         <div class="card-body">
             <table class="table">
@@ -37,7 +48,7 @@
                         <tr>
                             <th scope="row">{{ $bloque->id }}</th>
                             <td><b>{{ $bloque->nombre }}</b></td>
-                            <td>{{strip_tags( $bloque->descripcion)}}</td>
+                            <td>{{ strip_tags($bloque->descripcion) }}</td>
                             <td width="10px">
                                 <a href="{{ route('admin.bloque.edit', $bloque) }}" class="btn btn-primary btn-sm">Editar
                                 </a>
@@ -47,7 +58,7 @@
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Estás seguro de que deseas eliminar este bloque?')">
+                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este bloque?')">
                                         Eliminar
                                     </button>
                                 </form>

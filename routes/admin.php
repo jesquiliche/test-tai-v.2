@@ -21,9 +21,9 @@ Route::get("/", [HomeController::class,'index'])->middleware('can:admin.home')->
 Route::resource("categorias",CategoriaController::class)->names('admin.categoria');
 Route::resource("preguntas",PreguntaController::class)->names('admin.pregunta');
 
-
-
 Route::post('/preguntas/export', [PreguntaController::class, 'exportToJson'])->name('admin.pregunta.export');
+Route::post('/bloques/export', [BloqueController::class, 'exportToJson'])->name('admin.bloque.export');
+Route::post('/categorias/export', [CategoriaController::class, 'exportToJson'])->name('admin.categoria.export');
 
 
 

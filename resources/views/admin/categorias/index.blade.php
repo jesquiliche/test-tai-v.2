@@ -30,8 +30,19 @@
 
         <div id="collapse{{ $bloque->id }}" class="collapse @if($loop->first) show @endif"
             aria-labelledby="heading{{ $bloque->id }}" data-parent="#accordionCategorias">
+        
             <div class="card-body">
-                <a class="btn btn-primary mb-3" href="{{route('admin.categoria.create')}}">Agregar categoria</a>
+                <table>
+                <td>
+                <a class="btn btn-primary btn-sm mb-3" href="{{route('admin.categoria.create')}}">Agregar categoria</a>
+                </td>
+                <td>
+                    <form method="POST" action="{{ route('admin.categoria.export') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-primary btn-sm ml-2">Exportar a JSON</button>
+                    </form>
+                </td>
+                </table>
                 <table class="table table-bordered table-hover" id="tabla-categorias">
                     <thead>
                         <tr>
