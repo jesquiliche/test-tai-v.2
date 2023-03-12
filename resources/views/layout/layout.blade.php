@@ -452,10 +452,10 @@
 
 
             font-size: 18px;
-            
+
         }
 
-       
+
 
         .fa-check {
             color: rgb(132, 220, 132);
@@ -578,8 +578,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-warning">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo_low.png"  width="60"  alt="..." loading="lazy">
-                     <b>Test Oposiciones Tai</b></a>
+                    <img src="images/logo_low.png" width="60" alt="..." loading="lazy">
+                    <b>Test Oposiciones Tai</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -603,27 +603,36 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user-plus"></i> 
+                                <i class="fas fa-user-plus"></i>
                                 @if (!auth()->check())
-                              
-                                    
                                 @else
                                     {{ auth()->user()->name }}
                                 @endif
-                                
+
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('registro') }}">Registro</a>
                                 @if (!auth()->check())
-                              
                                     <a class="dropdown-item" href="{{ route('login2') }}">Iniciar sesión</a>
                                 @endif
-                                
+
                                 @can('admin.home')
                                     <a class="dropdown-item" href={{ route('admin.home') }}>Administración</a>
                                 @endcan
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                @if (auth()->check())
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item " href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                @endif
+                            </div>
                             </div>
                         </li>
                     </ul>
@@ -634,8 +643,7 @@
         </div>
     </div>
     @yield('content')
-</main>
-<footer>
+    <footer>
     <h5>Copyrigth Jesús Quintana Esquiliche</h5>
     <ul class="social-icons">
         <li><a href="#"><i class="fas fa-facebook-square"></i></a></li>
@@ -643,6 +651,8 @@
         <li><a href="#"><i class="fas fa-instagram-square"></i></a></li>
     </ul>
 </footer>
+
+</main>
 
 
 </html>

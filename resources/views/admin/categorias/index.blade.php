@@ -34,12 +34,12 @@
             <div class="card-body">
                 <table>
                 <td>
-                <a class="btn btn-primary btn-sm mb-3" href="{{route('admin.categoria.create')}}">Agregar categoria</a>
+                <a class="btn btn-primary btn-sm mb-2" href="{{route('admin.categoria.create')}}">Agregar categoria</a>
                 </td>
                 <td>
                     <form method="POST" action="{{ route('admin.categoria.export') }}">
                         @csrf
-                        <button type="submit" class="btn btn-primary btn-sm ml-2">Exportar a JSON</button>
+                        <button type="submit" class="btn btn-primary btn-sm ml-2 mb-2">Exportar a JSON</button>
                     </form>
                 </td>
                 </table>
